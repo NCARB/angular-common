@@ -1,0 +1,22 @@
+{
+  "name": "ncarb-angular-services",
+  "version": "0.0.1",
+  "description": "Common angular services",
+  "main": "services.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ESimmonds/angular-services.git"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "author": "Equan Simmonds",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ESimmonds/angular-services/issues"
+  },
+  "homepage": "https://github.com/ESimmonds/angular-services"
+}

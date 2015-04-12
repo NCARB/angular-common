@@ -1,0 +1,19 @@
+{
+  "name": "ncarb-angular-services",
+  "version": "0.0.1",
+  "authors": [
+    "Equan Simmonds <esimmonds@ncarb.org>"
+  ],
+  "description": "Common angular services",
+  "main": "./services.js",
+  "keywords": [
+    "angular",
+    "ncarb",
+    "services"
+  ],
+  "dependencies": {
+    "angular": "~1.3.12",
+    "oauth-ng": "~0.3.6"
+  },
+  "license": "MIT"
+}
