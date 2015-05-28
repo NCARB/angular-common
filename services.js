@@ -1,7 +1,7 @@
 'use strict';
 /**
  * ClaimService for AngularJS apps
- * @version v0.0.1 - 2015-03-12 * @link https://github.com/...
+ * @version v0.1.0 - 2015-03-12
  * @author Equan Simmonds <esimmonds@ncarb.org>
  */
 (function() {
@@ -74,9 +74,7 @@
       }
 
       return ClaimTypeFactory[name] || ClaimTypeFactory.ncarb[name] || ClaimTypeFactory.microsoft[name];
-
     }
-
   }]);
 
   module.service('ClaimTypeFactory', function ClaimTypeFactory() {
@@ -142,10 +140,10 @@
     };
 
     claimTypes.ncarb = {
-      personId: 'http://identity.ncarb.org/claims/personid'
+      personId: 'http://identity.ncarb.org/claims/personid',
+      staffId: 'http://identity.ncarb.org/claims/staffId'
     };
 
     return claimTypes;
   });
-
 })();
