@@ -40,7 +40,7 @@
     this.isStaff = function() {
       var staffId = getClaim('staffId');
 
-      return !!staffId;;
+      return !!staffId;
     }
 
     var getClaim = function(name) {
