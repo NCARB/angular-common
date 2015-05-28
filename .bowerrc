@@ -1,9 +1,7 @@
 {
   "registry": {
     "search": [
-      "https://www.myget.org/F/ncarb-bower/auth/01d9cf01-607d-46b9-9776-a6fc1ccd2d14/bower/",
-      "https://bower.herokuapp.com"
-    ],
-    "register": "https://www.myget.org/F/ncarb-bower/auth/01d9cf01-607d-46b9-9776-a6fc1ccd2d14/bower/"
+      "https://www.myget.org/F/ncarb-bower/auth/6ac75d48-1d04-4319-9e65-3a8d5d6a1721/bower/"      
+    ]
   }
 }
