@@ -1,6 +1,6 @@
 {
   "name": "ncarb-angular-services",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "authors": [
     "Equan Simmonds <esimmonds@ncarb.org>"
   ],
@@ -12,8 +12,12 @@
     "services"
   ],
   "dependencies": {
-    "angular": "~1.3.12",
-    "oauth-ng": "~0.3.6"
+    "angular": "1.3.12",
+    "oauth-ng": "0.3.6"
   },
-  "license": "MIT"
+  "homepage": "https://github.com/NCARB/angular-services",
+  "license": "MIT",
+  "resolutions": {
+    "angular": "1.3.12"
+  }
 }
