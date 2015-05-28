@@ -37,6 +37,12 @@
       }
     };
 
+    this.isStaff = function() {
+      var staffId = getClaim('staffId');
+
+      return !!staffId;
+    }
+
     var getClaim = function(name) {
 
       var profile = Profile.get();
