@@ -1,16 +1,10 @@
-# packaged angular-services
+# packaged ncarb-angular-services
 
-This repo is for distribution on `npm` and `bower`.
+This repo is for distribution on `bower`.
 
 ## Install
 
-You can install this package either with `npm` or with `bower`.
-
-### npm
-
-```shell
-npm install ncarb-angular-services
-```
+You can install this package with `bower`.
 
 Then add `ncarb.services` as a dependency for your app:
 
@@ -21,10 +15,10 @@ angular.module('myApp', [require('ncarb.services')]);
 ### bower
 
 ```shell
-bower install ncarb-angular-services
+bower install ncarb-angular-services --save
 ```
 
-Add a `<script>` to your `index.html`:
+Add a `<script>` to your `index.html` (otherwise let grunt wiredep handle it):
 
 ```html
 <script src="/bower_components/ncarb-angular-services/services.js"></script>
