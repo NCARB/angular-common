@@ -1,4 +1,4 @@
-(function() {
+(function(angular) {
     'use strict'
 
     var module = angular.module('ncarb.services', ['oauth'])
@@ -15,6 +15,7 @@
       var personId;
       var email;
       var fullName;
+      var username;
 
       var service = {
         getPersonId: getPersonId,
@@ -31,6 +32,10 @@
 
       function getEmail() {
         return email || getClaim('email');
+      };
+
+      this.getUsername = function() {
+        return username || getClaim('name');
       };
 
       function getFullName() {
@@ -187,4 +192,4 @@
     }
   }
 
-})();
+})(window.angular);
