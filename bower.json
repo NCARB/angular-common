@@ -1,11 +1,30 @@
 {
-  "name": "ncarb-angular-services",
-  "version": "0.5.1",
+  "name": "ncarb-angular-common",
+  "version": "0.6.0",
   "authors": [
     "Equan Simmonds <esimmonds@ncarb.org>"
   ],
-  "description": "Common angular services",
-  "main": "./services.js",
+  "description": "Common angular common",
+  "main": [
+    "./modules/directives/module.js",
+    "./modules/directives/displayAddress.js",
+    "./modules/directives/displayPhone.js",
+    "./modules/directives/editAddress.js",
+    "./modules/directives/editPhone.js",
+    "./modules/directives/feedback.js",
+    "./modules/directives/utc.js",
+    "./modules/common/module.js",
+    "./modules/common/country.js",
+    "./modules/common/jurisdiction.js",
+    "./modules/common/state.js",
+    "./modules/login/module.js",
+    "./modules/login/claim.js",
+    "./modules/login/storage.js",
+    "./modules/login/user.js",
+    "./modules/util/module.js",
+    "./modules/util/history.js",
+    "./servicesModule.js"
+  ],
   "keywords": [
     "angular",
     "ncarb",
@@ -15,6 +34,5 @@
     "angular": "^1.3.12",
     "oauth-ng": "0.4.0"
   },
-  "homepage": "https://github.com/NCARB/angular-services",
-  "license": "MIT"
+  "homepage": "https://github.com/NCARB/angular-common"
 }

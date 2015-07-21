@@ -1,12 +1,10 @@
 (function(angular) {
     'use strict'
 
-    var module = angular.module('ncarb.services', ['oauth'])
+    angular.module('ncarb.services.login')
       .service('ClaimService', ClaimService)
-      .service('ClaimTypeFactory', ClaimTypeFactory)
-      .service('StorageService', StorageService);
+      .factory('ClaimTypeFactory', ClaimTypeFactory);
       
-
     ClaimService.$inject = ['StorageService', 'Profile', 'ClaimTypeFactory'];
 
     function ClaimService(StorageService, Profile, ClaimTypeFactory) {
@@ -162,34 +160,5 @@
       return claimTypes;
 
     };
-
-  StorageService.$inject = ['$localStorage'];
-
-  function StorageService($localStorage) {
-    var service = {
-      reset: reset,
-      setItem: setItem,
-      getItem: getItem,
-      removeItem: removeItem
-    };
-
-    return service;
-
-    function reset() {
-      $localStorage.$reset();
-    }
-
-    function setItem(key, value) {
-      $localStorage[key] = value;
-    }
-
-    function getItem(key) {
-      return $localStorage[key];
-    }
-
-    function removeItem(key) {
-      delete $localStorage[key];
-    }
-  }
 
 })(window.angular);
