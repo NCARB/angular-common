@@ -1,14 +1,14 @@
 {
-  "name": "ncarb-angular-services",
+  "name": "ncarb-angular-common",
   "version": "0.0.1",
-  "description": "Common angular services",
+  "description": "Common angular services and directives",
   "main": "services.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/ESimmonds/angular-services.git"
+    "url": "git://github.com/NCARB/angular-common.git"
   },
   "keywords": [
     "angular"
@@ -16,7 +16,7 @@
   "author": "Equan Simmonds",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ESimmonds/angular-services/issues"
+    "url": "https://github.com/NCARB/angular-common/issues"
   },
-  "homepage": "https://github.com/ESimmonds/angular-services"
+  "homepage": "https://github.com/NCARB/angular-common"
 }
