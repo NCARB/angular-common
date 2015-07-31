@@ -22,8 +22,9 @@
     "./modules/login/storage.js",
     "./modules/login/user.js",
     "./modules/util/module.js",
-    "./modules/util/history.js",
-    "./servicesModule.js"
+    "./modules/util/history.js",    
+    "./servicesModule.js",
+    "./bootstrap.js"
   ],
   "keywords": [
     "angular",
