@@ -1,6 +1,6 @@
 {
   "name": "ncarb-angular-common",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "authors": [
     "Equan Simmonds <esimmonds@ncarb.org>"
   ],
@@ -22,7 +22,7 @@
     "./modules/login/storage.js",
     "./modules/login/user.js",
     "./modules/util/module.js",
-    "./modules/util/history.js",    
+    "./modules/util/history.js",
     "./servicesModule.js",
     "./bootstrap.js"
   ],
