@@ -6,7 +6,32 @@
         .directive('editAddress', function() {
         return {
             restrict: 'E',
-            templateUrl: 'views/directives/editAddress.html',
+            template: '<div ng-form="addressForm" class="flex-container flex-gutters">\
+    <div class="flex-item" feedback>\
+        <select name="country" ng-required="!hidden" ng-options="country.id as country.name for country in (countries | orderBy: \'name\')" ng-model="address.countryId" ng-change="countryIdChanged()"></select>\
+    </div>\
+    <div class="flex-item" feedback>\
+        <input name="streetLine1" ng-required="!hidden" type="text" placeholder="Company" ng-model="address.streetLine1"/>\
+    </div>\
+    <div class="flex-item">\
+        <input name="streetLine2" type="text" placeholder="Street" ng-model="address.streetLine2" />\
+    </div>\
+    <div class="flex-item flex-fill" feedback>\
+        <input name="city" ng-required="!hidden" type="text" placeholder="City"  ng-model="address.city" />\
+    </div>\
+    <div class="flex-item flex-collapse" ng-show="IsUsAddress()" feedback>\
+        <select name="state" ng-required="!hidden && IsUsAddress()" ng-options="state.id as state.code for state in (states | filter: { countryId: usa.id })" ng-model="address.stateId" ng-change="stateIdChanged()"></select>\
+    </div>\
+    <div class="flex-item flex-collapse" ng-show="IsCaAddress()" feedback>\
+        <select name="province" ng-required="!hidden && IsCaAddress()" ng-options="state.id as state.code for state in (states | filter: { countryId: canada.id })" ng-model="address.provinceId" ng-change="provinceIdChanged()"></select>\
+    </div>\
+    <div class="flex-item flex-collapse" ng-show="IsForeignAddress()">\
+        <input type="text" ng-model="address.stateProvenceOrRegionText" placeholder="Region" />\
+    </div>\
+    <div class="flex-item flex-collapse" feedback>\
+        <input ng-required="!hidden && !IsForeignAddress()" name="zip" type="text" ng-model="address.zip" ng-attr-placeholder="IsUsAddress() ? \'Zip Code\' : \'Postal Code\'" placeholder="Postal Code"  zip-pattern-by-country-id />\
+    </div>\
+</div>',
             replace: true,
             require: '^form',
             scope: {
@@ -69,10 +94,6 @@
                     ? scope.address.country.id
                     : scope.usa.id;
                 }
-
-                scope.showErrors = function(formElement) {
-                    return (scope.address && scope.address.id || form.$$parentForm.$submitted || formElement.$dirty) && formElement.$invalid;
-                };
             }
         };
     });      

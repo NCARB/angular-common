@@ -10,6 +10,7 @@
     "./modules/directives/displayAddress.js",
     "./modules/directives/displayPhone.js",
     "./modules/directives/editAddress.js",
+    "./modules/directives/zipPatternByCountryId.js",
     "./modules/directives/editPhone.js",
     "./modules/directives/feedback.js",
     "./modules/directives/utc.js",
