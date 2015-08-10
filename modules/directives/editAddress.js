@@ -16,7 +16,7 @@
     <div class="flex-item">\
         <input name="streetLine2" type="text" placeholder="Street" ng-model="address.streetLine2" />\
     </div>\
-    <div class="flex-item flex-fill" feedback>\
+    <div class="flex-item flex-fill-2" feedback>\
         <input name="city" ng-required="!hidden" type="text" placeholder="City"  ng-model="address.city" />\
     </div>\
     <div class="flex-item flex-collapse" ng-show="IsUsAddress()" feedback>\
@@ -25,10 +25,10 @@
     <div class="flex-item flex-collapse" ng-show="IsCaAddress()" feedback>\
         <select name="province" ng-required="!hidden && IsCaAddress()" ng-options="state.id as state.code for state in (states | filter: { countryId: canada.id })" ng-model="address.provinceId" ng-change="provinceIdChanged()"></select>\
     </div>\
-    <div class="flex-item flex-collapse" ng-show="IsForeignAddress()">\
+    <div class="flex-item flex-fill-2" ng-show="IsForeignAddress()">\
         <input type="text" ng-model="address.stateProvenceOrRegionText" placeholder="Region" />\
     </div>\
-    <div class="flex-item flex-collapse" feedback>\
+    <div class="flex-item flex-fill" feedback>\
         <input ng-required="!hidden && !IsForeignAddress()" name="zip" type="text" ng-model="address.zip" ng-attr-placeholder="IsUsAddress() ? \'Zip Code\' : \'Postal Code\'" placeholder="Postal Code"  zip-pattern-by-country-id />\
     </div>\
 </div>',
