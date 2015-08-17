@@ -25,6 +25,7 @@
     "./modules/login/user.js",
     "./modules/util/module.js",
     "./modules/util/history.js",
+    "./modules/util/breakpoints.js",
     "./servicesModule.js",
     "./bootstrap.js"
   ],
