@@ -13,6 +13,7 @@
     "./modules/directives/zipPatternByCountryId.js",
     "./modules/directives/editPhone.js",
     "./modules/directives/feedback.js",
+    "./modules/directives/multiFeedback.js",
     "./modules/directives/utc.js",
     "./modules/common/module.js",
     "./modules/common/country.js",
