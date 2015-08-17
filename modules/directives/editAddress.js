@@ -53,9 +53,7 @@
                 };
 
                 $scope.countryIdChanged = function() {
-                    $scope.address.countryText = _.find($scope.countries, function(country) {
-                        return country.id === $scope.address.countryId;
-                    }).name;
+                    $scope.address.countryText = $scope.getCountryNameById($scope.address.countryId)
                     $scope.address.stateId = null;
                     $scope.address.provinceId = null;
                     $scope.address.stateProvinceOrRegionText = null;
@@ -88,11 +86,18 @@
                 scope.IsForeignAddress = function() {
                     return !scope.IsUsAddress() && !scope.IsCaAddress();
                 };
+                scope.getCountryNameById = function (countryId) {
+                    return _.find(scope.countries, function(country) {
+                        return country.id === countryId;
+                    }).name;
+                };
 
                 if(!scope.address.countryId) {
                     scope.address.countryId = scope.address.country 
                     ? scope.address.country.id
                     : scope.usa.id;
+
+                    scope.address.countryText = scope.getCountryNameById(scope.address.countryId);
                 }
             }
         };
