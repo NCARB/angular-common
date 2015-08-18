@@ -1,4 +1,4 @@
-# packaged ncarb-angular-services
+# packaged ncarb-angular-common
 
 This repo is for distribution on `bower`.
 
@@ -11,7 +11,7 @@ bower install ncarb-angular-common --save
 Then add `ncarb.services and/or ncarb.directives` as a dependency for your app:
 
 ```javascript
-angular.module('myApp', [require('ncarb.services','ncarb.directives')]);
+angular.module('myApp', ['ncarb.services','ncarb.directives']);
 ```
 
 
