@@ -51,7 +51,7 @@
 	            scope.$watch(errorWatch, function (hasError) {
 	                if(blurred || formCtrl.$submitted) {
 	                    el.toggleClass('has-error', hasError);
-	                    if(multi) {
+	                    if(multi && (formCtrl[inputName].$dirty || formCtrl.$submitted)) {
 	                    	multi.update(inputFullName, formCtrl[inputName].$valid);
 	                    }
 	                }
@@ -63,7 +63,7 @@
 	                    	if(showSuccess) {
 	                        	el.toggleClass('has-success', !!(hasSuccess && formCtrl[inputName].$viewValue));
 	                    	}
-	                    	if(multi) {
+	                    	if(multi && (formCtrl[inputName].$dirty || formCtrl.$submitted)) {
 	                    		multi.update(inputFullName, formCtrl[inputName].$valid);
 	                    	}
 	                    }
