@@ -4,6 +4,7 @@
     angular
         .module('ncarb.directives')
 	    .directive('multiFeedback', function() {
+	        controller.$inject = ['$scope'];
 	        return {
 	            restrict: 'A',
 	            require: 'multiFeedback',
