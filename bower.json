@@ -27,6 +27,7 @@
     "./modules/util/module.js",
     "./modules/util/history.js",
     "./modules/util/breakpoints.js",
+    "./modules/util/error.js",
     "./servicesModule.js",
     "./bootstrap.js"
   ],
