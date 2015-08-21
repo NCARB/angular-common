@@ -38,7 +38,7 @@
   ],
   "dependencies": {
     "angular": "^1.3.12",
-    "oauth-ng": "0.4.0"
+    "oauth-ng": "0.4.2"
   },
   "homepage": "https://github.com/NCARB/angular-common"
 }
