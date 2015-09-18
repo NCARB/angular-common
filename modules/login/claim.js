@@ -19,22 +19,24 @@
         getPersonId: getPersonId,
         getEmail: getEmail,
         getFullName: getFullName,
-        getClaim: getClaim
+        isInRole: isInRole,
+        getClaim: getClaim,
+        isStaff: isStaff
       };
 
       return service;
 
       function getPersonId() {
         return personId || getClaim('personId');
-      };
+      }
 
       function getEmail() {
         return email || getClaim('email');
-      };
+      }
 
       this.getUsername = function() {
         return username || getClaim('name');
-      };
+      }
 
       function getFullName() {
 
@@ -48,7 +50,7 @@
         if (firstName && lastName) {
           return firstName + ' ' + lastName;
         }
-      };
+      }
 
       function isStaff() {
         var staffId = getClaim('staffId');
@@ -57,6 +59,18 @@
       }
 
       function getClaim(name) {
+        return _.first(getClaimsFor(name));
+      }
+      
+      function isInRole(role) {
+        return _.contains(getRoles(), role);
+      }
+      
+      function getRoles() {
+        return getClaimsFor('role');
+      }
+      
+      function getClaimsFor(name) {
 
         var profile = Profile.get();
 
@@ -69,16 +83,14 @@
           var type = getClaimType(name);
 
           if (type) {
-            var claim = _.findWhere(profile, {
+            var claims = _.where(profile, {
               type: type
             });
-
-            if (claim) {
-              return claim.value;
-            }
+            return _.pluck(claims, 'value');
           }
         }
-      };
+        return [];
+      }
 
       function getClaimType(name) {
 
@@ -159,6 +171,6 @@
 
       return claimTypes;
 
-    };
+    }
 
 })(window.angular);
