@@ -24,7 +24,7 @@
                     }
                     function utcToTicks(date) {
                         date = utcToDate(date);
-                        return date.getTime ? date.getTime() : null;
+                        return date && date.getTime ? date.getTime() : null;
                     }
                     scope.utcToDate = utcToDate;
                     scope.utcToTicks = utcToTicks;
