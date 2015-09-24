@@ -22,7 +22,12 @@
                         }
                         return date;
                     }
+                    function utcToTicks(date) {
+                        date = utcToDate(date);
+                        return date.getTime ? date.getTime() : null;
+                    }
                     scope.utcToDate = utcToDate;
+                    scope.utcToTicks = utcToTicks;
                     scope.oneDay = 1000 * 60 * 60 * 24;
 
                     function pad(number) {
