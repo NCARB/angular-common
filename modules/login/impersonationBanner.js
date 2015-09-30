@@ -21,20 +21,21 @@
 
         function link(scope, element, attrs) {
             setInfo(scope);
-            scope.unimpersonateUrl = configuration.getUnimpersonateUri();
-            $rootScope.$on('oauth:login', function(event, token) {
+            $rootScope.$on('oauth:profile', function(event, token) {
                 setInfo(scope);
             });
-			$rootScope.$on('oauth:loggedOut', function(event, token) {
+            $rootScope.$on('oauth:loggedOut', function(event, token) {
                 setInfo(scope);
             });
         }
         
         function setInfo(scope) {
-            $timeout(function() {
-                scope.isImpersonating = ClaimService.isImpersonating();
+            scope.isImpersonating = ClaimService.isImpersonating();
+            if(scope.isImpersonating) {
+                var personId = ClaimService.getPersonId();
+                scope.unimpersonateUrl = configuration.getUnimpersonateUri(personId);
                 scope.name = ClaimService.getFullName();
-            }, 10);
+            }
         }
     }
 })(window.angular);
