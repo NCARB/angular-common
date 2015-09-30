@@ -1,13 +1,13 @@
 (function(angular) {
-    'use strict'
+    'use strict';
 
     angular.module('ncarb.services.login')
       .service('ClaimService', ClaimService)
       .factory('ClaimTypeFactory', ClaimTypeFactory);
       
-    ClaimService.$inject = ['StorageService', 'Profile', 'ClaimTypeFactory'];
+    ClaimService.$inject = ['StorageService', 'Profile', 'ClaimTypeFactory', '_'];
 
-    function ClaimService(StorageService, Profile, ClaimTypeFactory) {
+    function ClaimService(StorageService, Profile, ClaimTypeFactory, _) {
 
       //cacheFactory
       var personId;
@@ -19,9 +19,11 @@
         getPersonId: getPersonId,
         getEmail: getEmail,
         getFullName: getFullName,
+        getUsername: getUsername,
         isInRole: isInRole,
         getClaim: getClaim,
-        isStaff: isStaff
+        isStaff: isStaff,
+        isImpersonating: isImpersonating
       };
 
       return service;
@@ -34,7 +36,7 @@
         return email || getClaim('email');
       }
 
-      this.getUsername = function() {
+      function getUsername() {
         return username || getClaim('name');
       }
 
@@ -68,6 +70,16 @@
       
       function getRoles() {
         return getClaimsFor('role');
+      }
+      
+      
+      function isImpersonating() {
+        var authenticationMethod = getClaim('authenticationMethod');
+        if(!authenticationMethod) {
+          return false;
+        }
+        var splits = authenticationMethod.split("/");
+        return splits[splits.length - 1] == "impersonate";
       }
       
       function getClaimsFor(name) {

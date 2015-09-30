@@ -24,6 +24,7 @@
     "./modules/login/claim.js",
     "./modules/login/storage.js",
     "./modules/login/user.js",
+    "./modules/login/impersonationBanner.js",
     "./modules/util/module.js",
     "./modules/util/history.js",
     "./modules/util/breakpoints.js",
@@ -38,7 +39,8 @@
   ],
   "dependencies": {
     "angular": "^1.3.12",
-    "oauth-ng": "0.4.2"
+    "oauth-ng": "0.4.2",
+    "underscore": "^1.8.0"
   },
   "homepage": "https://github.com/NCARB/angular-common"
 }
