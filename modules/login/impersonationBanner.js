@@ -5,9 +5,9 @@
         .module('ncarb.services.login')
         .directive('impersonationBanner', impersonationBanner);
 
-    impersonationBanner.$inject = ['ClaimService', 'configuration', '$rootScope'];
+    impersonationBanner.$inject = ['ClaimService', 'configuration', '$rootScope', '$timeout'];
 
-    function impersonationBanner (ClaimService, configuration, $rootScope) {
+    function impersonationBanner (ClaimService, configuration, $rootScope, $timeout) {
         var directive = {
             link: link,
             restrict: 'E',
@@ -31,8 +31,10 @@
         }
         
         function setInfo(scope) {
-            scope.isImpersonating = ClaimService.isImpersonating();
-            scope.name = ClaimService.getFullName();
+            $timeout(function() {
+                scope.isImpersonating = ClaimService.isImpersonating();
+                scope.name = ClaimService.getFullName();
+            }, 10);
         }
     }
 })(window.angular);
