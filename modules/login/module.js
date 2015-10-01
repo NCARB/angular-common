@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('ncarb.services.login',['oauth'])
+        .module('ncarb.services.login',['oauth', 'ncarb.services.common'])
         .constant('_', window._);
 
 })(window.angular);

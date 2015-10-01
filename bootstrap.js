@@ -5,10 +5,10 @@
 		.module('ncarb.services')
 		.service('Bootstrap', Bootstrap);
 
-	Bootstrap.$inject = ['$rootScope', '$state', '$http', 'StorageService', 'history', 'configuration', '$window', 'ClaimService', 'UserService'];
+	Bootstrap.$inject = ['$rootScope', '$state', '$http', 'StorageService', 'history', 'configuration', '$window', 'ClaimService', 'UserService', 'pathProvider'];
 
 	/* @ngInject */
-	function Bootstrap($rootScope, $state, $http, StorageService, history, configuration, $window, ClaimService, UserService) {
+	function Bootstrap($rootScope, $state, $http, StorageService, history, configuration, $window, ClaimService, UserService, pathProvider) {
 		this.run = run;
 
 		////////////////
@@ -18,6 +18,7 @@
 			$rootScope.configuration = configuration;
 			$rootScope.UserService = UserService;
 			$rootScope.ClaimService = ClaimService;
+			$rootScope.pathProvider = pathProvider;
 			if (UserService.isAuthenticated()) {
 				UserService.setAuthorizationHeader();
 				UserService.setPolicies();

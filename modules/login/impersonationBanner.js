@@ -5,9 +5,9 @@
         .module('ncarb.services.login')
         .directive('impersonationBanner', impersonationBanner);
 
-    impersonationBanner.$inject = ['ClaimService', 'configuration', '$rootScope', '$timeout'];
+    impersonationBanner.$inject = ['ClaimService', 'pathProvider', '$rootScope'];
 
-    function impersonationBanner (ClaimService, configuration, $rootScope, $timeout) {
+    function impersonationBanner (ClaimService, pathProvider, $rootScope) {
         var directive = {
             link: link,
             restrict: 'E',
@@ -20,6 +20,7 @@
         return directive;
 
         function link(scope, element, attrs) {
+            scope.unimpersonateUrl = pathProvider.stopImpersonating;
             setInfo(scope);
             $rootScope.$on('oauth:profile', function(event, token) {
                 setInfo(scope);
@@ -32,8 +33,6 @@
         function setInfo(scope) {
             scope.isImpersonating = ClaimService.isImpersonating();
             if(scope.isImpersonating) {
-                var personId = ClaimService.getPersonId();
-                scope.unimpersonateUrl = configuration.getUnimpersonateUri(personId);
                 scope.name = ClaimService.getFullName();
             }
         }
