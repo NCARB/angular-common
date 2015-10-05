@@ -21,6 +21,7 @@
     "./modules/common/jurisdiction.js",
     "./modules/common/state.js",
     "./modules/common/pathProvider.js",
+    "./modules/common/enum.js",
     "./modules/login/module.js",
     "./modules/login/claim.js",
     "./modules/login/storage.js",
