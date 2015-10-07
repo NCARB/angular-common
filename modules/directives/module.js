@@ -2,6 +2,7 @@
     'use strict';
 
     angular
-        .module('ncarb.directives',[]);        
+        .module('ncarb.directives',[])
+        .constant('_', window._);
 
 })(window.angular);

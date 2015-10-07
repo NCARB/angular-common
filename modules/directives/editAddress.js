@@ -3,7 +3,12 @@
 
     angular
         .module('ncarb.directives')
-        .directive('editAddress', function() {
+        .directive('editAddress', editAddress)
+        .constant('editAddressConfig', {});
+    
+    editAddress.$inject = ['editAddressConfig', '_'];
+    
+    function editAddress(editAddressConfig, _) {
         return {
             restrict: 'E',
             template: '<div ng-form="addressForm" class="flex-container flex-gutters">\
@@ -11,10 +16,10 @@
         <select name="country" ng-required="!hidden" ng-options="country.id as country.name for country in (countries | orderBy: \'name\')" ng-model="address.countryId" ng-change="countryIdChanged()"></select>\
     </div>\
     <div class="flex-item" feedback>\
-        <input name="streetLine1" ng-required="!hidden" type="text" placeholder="Company" ng-model="address.streetLine1"/>\
+        <input name="streetLine1" ng-required="!hidden" type="text" ng-attr-placeholder="{{streetLine1Placeholder}}" ng-model="address.streetLine1"/>\
     </div>\
     <div class="flex-item">\
-        <input name="streetLine2" type="text" placeholder="Street" ng-model="address.streetLine2" />\
+        <input name="streetLine2" type="text" ng-attr-placeholder="{{streetLine2Placeholder}}" ng-model="address.streetLine2" />\
     </div>\
     <div class="flex-item flex-fill-2" feedback>\
         <input name="city" ng-required="!hidden" type="text" placeholder="City"  ng-model="address.city" />\
@@ -40,66 +45,80 @@
                 countries: '=',
                 hidden: '=ngHide'
             },
-            controller: function($scope) {
-                var _ = window._;
-                this.usa = $scope.usa = _.find($scope.countries, function(country) {
-                    return country.code === 'USA';
-                });
-                this.canada = $scope.canada = _.find($scope.countries, function(country) {
-                    return country.code === 'CAN';
-                });
-                this.getAddress = function() {
-                    return $scope.address;
-                };
-
-                $scope.countryIdChanged = function() {
-                    $scope.address.countryText = $scope.getCountryNameById($scope.address.countryId)
-                    $scope.address.stateId = null;
-                    $scope.address.provinceId = null;
-                    $scope.address.stateProvinceOrRegionText = null;
-                    $scope.$broadcast('countryIdChanged', $scope.address.countryId);
-                };
-
-                $scope.stateIdChanged = function() {
-                    var state = _.find($scope.states, function(state) {
-                        return state.id === $scope.address.stateId;
-                    });
-                    $scope.address.stateProvinceOrRegionText = state ? state.code : null;
-                };
-
-                $scope.provinceIdChanged = function() {
-                    var province = _.find($scope.states, function(state) {
-                        return state.id === $scope.address.provinceId;
-                    });
-                    $scope.address.stateProvinceOrRegionText = province ? province.code : null;
-                };
-            },
-            link: function(scope, elem, attrs, form) {
-                var _ = window._;
-
-                scope.IsUsAddress = function() {
-                    return scope.address.countryId === scope.usa.id;
-                };
-                scope.IsCaAddress = function() {
-                    return scope.address.countryId === scope.canada.id;
-                };          
-                scope.IsForeignAddress = function() {
-                    return !scope.IsUsAddress() && !scope.IsCaAddress();
-                };
-                scope.getCountryNameById = function (countryId) {
-                    return _.find(scope.countries, function(country) {
-                        return country.id === countryId;
-                    }).name;
-                };
-
-                if(!scope.address.countryId) {
-                    scope.address.countryId = scope.address.country 
-                    ? scope.address.country.id
-                    : scope.usa.id;
-
-                    scope.address.countryText = scope.getCountryNameById(scope.address.countryId);
-                }
-            }
+            controller: controller,
+            link: link
         };
-    });      
+    
+        function controller($scope) {
+            this.usa = $scope.usa = _.find($scope.countries, function(country) {
+                return country.code === 'USA';
+            });
+            this.canada = $scope.canada = _.find($scope.countries, function(country) {
+                return country.code === 'CAN';
+            });
+            this.getAddress = function() {
+                return $scope.address;
+            };
+    
+            $scope.countryIdChanged = function() {
+                $scope.address.countryText = $scope.getCountryNameById($scope.address.countryId);
+                $scope.address.stateId = null;
+                $scope.address.provinceId = null;
+                $scope.address.stateProvinceOrRegionText = null;
+                $scope.$broadcast('countryIdChanged', $scope.address.countryId);
+            };
+    
+            $scope.stateIdChanged = function() {
+                var state = _.find($scope.states, function(state) {
+                    return state.id === $scope.address.stateId;
+                });
+                $scope.address.stateProvinceOrRegionText = state ? state.code : null;
+            };
+    
+            $scope.provinceIdChanged = function() {
+                var province = _.find($scope.states, function(state) {
+                    return state.id === $scope.address.provinceId;
+                });
+                $scope.address.stateProvinceOrRegionText = province ? province.code : null;
+            };
+        }
+        
+        function link(scope, elem, attrs, form) {
+            scope.streetLine1Placeholder = angular.isDefined(attrs.streetLine1Placeholder) 
+                ? attrs.streetLine1Placeholder
+                : angular.isDefined(editAddressConfig.streetLine1Placeholder)
+                ? editAddressConfig.streetLine1Placeholder
+                : "Street Line 1";
+            scope.streetLine2Placeholder = angular.isDefined(attrs.streetLine2Placeholder) 
+                ? attrs.streetLine2Placeholder
+                : angular.isDefined(editAddressConfig.streetLine2Placeholder)
+                ? editAddressConfig.streetLine2Placeholder
+                : scope.streetLine1Placeholder != "Street Line 1" 
+                ? "Street Line 1" 
+                : "Street Line 2";
+                
+            scope.IsUsAddress = function() {
+                return scope.address.countryId === scope.usa.id;
+            };
+            scope.IsCaAddress = function() {
+                return scope.address.countryId === scope.canada.id;
+            };          
+            scope.IsForeignAddress = function() {
+                return !scope.IsUsAddress() && !scope.IsCaAddress();
+            };
+            scope.getCountryNameById = function (countryId) {
+                return _.find(scope.countries, function(country) {
+                    return country.id === countryId;
+                }).name;
+            };
+    
+            if(!scope.address.countryId) {
+                scope.address.countryId = scope.address.country 
+                ? scope.address.country.id
+                : scope.usa.id;
+    
+                scope.address.countryText = scope.getCountryNameById(scope.address.countryId);
+            }
+        }
+    }
 })(window.angular);
