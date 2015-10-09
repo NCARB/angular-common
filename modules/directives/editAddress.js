@@ -49,6 +49,8 @@
             link: link
         };
     
+        controller.$inject = ['$scope'];
+    
         function controller($scope) {
             this.usa = $scope.usa = _.find($scope.countries, function(country) {
                 return country.code === 'USA';
@@ -82,6 +84,8 @@
                 $scope.address.stateProvinceOrRegionText = province ? province.code : null;
             };
         }
+        
+        link.$inject = ['scope', 'elem', 'attrs', 'form'];
         
         function link(scope, elem, attrs, form) {
             scope.streetLine1Placeholder = angular.isDefined(attrs.streetLine1Placeholder) 
