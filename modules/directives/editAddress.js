@@ -9,6 +9,10 @@
     editAddress.$inject = ['editAddressConfig', '_'];
     
     function editAddress(editAddressConfig, _) {
+        
+        controller.$inject = ['$scope'];
+        link.$inject = ['scope', 'elem', 'attrs', 'form'];
+        
         return {
             restrict: 'E',
             template: '<div ng-form="addressForm" class="flex-container flex-gutters">\
@@ -49,7 +53,6 @@
             link: link
         };
     
-        controller.$inject = ['$scope'];
     
         function controller($scope) {
             this.usa = $scope.usa = _.find($scope.countries, function(country) {
@@ -85,7 +88,6 @@
             };
         }
         
-        link.$inject = ['scope', 'elem', 'attrs', 'form'];
         
         function link(scope, elem, attrs, form) {
             scope.streetLine1Placeholder = angular.isDefined(attrs.streetLine1Placeholder) 
