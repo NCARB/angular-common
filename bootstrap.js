@@ -19,6 +19,7 @@
 			$rootScope.UserService = UserService;
 			$rootScope.ClaimService = ClaimService;
 			$rootScope.pathProvider = pathProvider;
+			$rootScope.history = history;
 			if (UserService.isAuthenticated()) {
 				UserService.setAuthorizationHeader();
 				UserService.setPolicies();
