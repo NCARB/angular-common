@@ -76,6 +76,12 @@
 			});
 
 			history.push($state.current, $state.params);
+
+			$rootScope.$onMany = function(eventsString, fn) {
+				angular.forEach(eventsString.split(" "), function (event) {
+					$rootScope.$on(event, fn);
+				});
+        	};
 		}
 	}
 })(window.angular);
