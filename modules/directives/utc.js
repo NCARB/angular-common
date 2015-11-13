@@ -53,7 +53,7 @@
                     });
                     
                     ngModel.$parsers.push(function(date) {
-                        if (date.toUtcString) {
+                        if (date && date.toUtcString) {
                             return date.toUtcString();
                         }
                         return date;
