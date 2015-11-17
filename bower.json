@@ -15,6 +15,7 @@
     "./modules/directives/feedback.js",
     "./modules/directives/multiFeedback.js",
     "./modules/directives/nestedFormSetSubmittedWithParent.js",
+    "./modules/directives/urlHelper.js",
     "./modules/directives/utc.js",
     "./modules/common/module.js",
     "./modules/common/country.js",
