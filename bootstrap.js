@@ -3,33 +3,14 @@
 
 	angular
 		.module('ncarb.services')
-		.service('Bootstrap', Bootstrap);
+		.service('Bootstrap', Bootstrap)
+		.provider('BootstrapProvider', BootstrapProvider);
 
-	Bootstrap.$inject = ['$locationProvider', '$httpProvider', 'uibDatepickerConfig', 'uibDatepickerPopupConfig', 
-	'$rootScope', '$state', '$http', 'StorageService', 'history', 'configuration', '$window', 'ClaimService', 'UserService', 'pathProvider', 'dateUtils'];
+	Bootstrap.$inject = ['$rootScope', '$state', '$http', 'StorageService', 'history', 'configuration', '$window', 'ClaimService', 'UserService', 'pathProvider', 'dateUtils'];
 
 	/* @ngInject */
-	function Bootstrap($locationProvider, $httpProvider, datepickerConfig, datepickerPopupConfig, 
-	$rootScope, $state, $http, StorageService, history, configuration, $window, ClaimService, UserService, pathProvider, dateUtils) {
-		this.config = config;
-		this.run = run;
-
-		////////////////
-		
-		function config() {
-			$locationProvider.html5Mode(true).hashPrefix('!');
-			$httpProvider.defaults.useXDomain = true;
-			delete $httpProvider.defaults.headers.common['X-Requested-With'];
-			$httpProvider.interceptors.push('dateInterceptor');
-			
-			datepickerConfig.showWeeks = false;
-			datepickerConfig.datepickerMode = 'day';
-			datepickerConfig.formatDay = 'd';
-			datepickerConfig.minMode = 'day';
-			datepickerConfig.maxMode = 'year';
-			datepickerPopupConfig.showButtonBar = false;
-			datepickerPopupConfig.datepickerPopup = 'MM/dd/yyyy';
-		}
+	function Bootstrap($rootScope, $state, $http, StorageService, history, configuration, $window, ClaimService, UserService, pathProvider, dateUtils) {
+	    this.run = run;
 
 		function run() {
 
@@ -104,4 +85,33 @@
         	};
 		}
 	}
+	
+
+	BootstrapProvider.$inject = ['$locationProvider', '$httpProvider', 'uibDatepickerConfig', 'uibDatepickerPopupConfig'];
+
+	/* @ngInject */
+	function BootstrapProvider($locationProvider, $httpProvider, datepickerConfig, datepickerPopupConfig) {
+	    this.$get = function() {
+	      return {
+	        config: config
+	      };
+	    };
+
+		////////////////
+		
+		function config() {
+			$locationProvider.html5Mode(true).hashPrefix('!');
+			$httpProvider.defaults.useXDomain = true;
+			delete $httpProvider.defaults.headers.common['X-Requested-With'];
+			$httpProvider.interceptors.push('dateInterceptor');
+			
+			datepickerConfig.showWeeks = false;
+			datepickerConfig.datepickerMode = 'day';
+			datepickerConfig.formatDay = 'd';
+			datepickerConfig.minMode = 'day';
+			datepickerConfig.maxMode = 'year';
+			datepickerPopupConfig.showButtonBar = false;
+			datepickerPopupConfig.datepickerPopup = 'MM/dd/yyyy';
+		}
+	}	
 })(window.angular);
