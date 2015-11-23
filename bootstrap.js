@@ -5,13 +5,33 @@
 		.module('ncarb.services')
 		.service('Bootstrap', Bootstrap);
 
-	Bootstrap.$inject = ['$rootScope', '$state', '$http', 'StorageService', 'history', 'configuration', '$window', 'ClaimService', 'UserService', 'pathProvider'];
+	Bootstrap.$inject = ['$locationProvider', '$httpProvider', 'RestangularProvider', 'datepickerConfig', 'datepickerPopupConfig', 
+	'$rootScope', '$state', '$http', 'StorageService', 'history', 'configuration', '$window', 'ClaimService', 'UserService', 'pathProvider', 'dateUtils'];
 
 	/* @ngInject */
-	function Bootstrap($rootScope, $state, $http, StorageService, history, configuration, $window, ClaimService, UserService, pathProvider) {
+	function Bootstrap($locationProvider, $httpProvider, RestangularProvider, datepickerConfig, datepickerPopupConfig, 
+	$rootScope, $state, $http, StorageService, history, configuration, $window, ClaimService, UserService, pathProvider, dateUtils) {
+		this.config = config;
 		this.run = run;
 
 		////////////////
+		
+		function config() {
+			$locationProvider.html5Mode(true).hashPrefix('!');
+			$httpProvider.defaults.useXDomain = true;
+			delete $httpProvider.defaults.headers.common['X-Requested-With'];
+			$httpProvider.interceptors.push('dateInterceptor');
+			
+			RestangularProvider.setBaseUrl(configuration.apiBaseUri);
+			
+			datepickerConfig.showWeeks = false;
+			datepickerConfig.datepickerMode = 'day';
+			datepickerConfig.formatDay = 'd';
+			datepickerConfig.minMode = 'day';
+			datepickerConfig.maxMode = 'year';
+			datepickerPopupConfig.showButtonBar = false;
+			datepickerPopupConfig.datepickerPopup = 'MM/dd/yyyy';
+		}
 
 		function run() {
 
@@ -20,6 +40,7 @@
 			$rootScope.ClaimService = ClaimService;
 			$rootScope.pathProvider = pathProvider;
 			$rootScope.history = history;
+			$rootScope.dateUtils = dateUtils;
 			if (UserService.isAuthenticated()) {
 				UserService.setAuthorizationHeader();
 				UserService.setPolicies();

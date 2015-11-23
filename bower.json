@@ -16,7 +16,6 @@
     "./modules/directives/multiFeedback.js",
     "./modules/directives/nestedFormSetSubmittedWithParent.js",
     "./modules/directives/urlHelper.js",
-    "./modules/directives/utc.js",
     "./modules/common/module.js",
     "./modules/common/country.js",
     "./modules/common/jurisdiction.js",
@@ -32,6 +31,8 @@
     "./modules/util/history.js",
     "./modules/util/breakpoints.js",
     "./modules/util/error.js",
+    "./modules/util/dateInterceptor.js",
+    "./modules/util/dateUtils.js",
     "./servicesModule.js",
     "./bootstrap.js"
   ],
