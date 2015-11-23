@@ -5,11 +5,11 @@
 		.module('ncarb.services')
 		.service('Bootstrap', Bootstrap);
 
-	Bootstrap.$inject = ['$locationProvider', '$httpProvider', 'RestangularProvider', 'datepickerConfig', 'datepickerPopupConfig', 
+	Bootstrap.$inject = ['$locationProvider', '$httpProvider', 'datepickerConfig', 'datepickerPopupConfig', 
 	'$rootScope', '$state', '$http', 'StorageService', 'history', 'configuration', '$window', 'ClaimService', 'UserService', 'pathProvider', 'dateUtils'];
 
 	/* @ngInject */
-	function Bootstrap($locationProvider, $httpProvider, RestangularProvider, datepickerConfig, datepickerPopupConfig, 
+	function Bootstrap($locationProvider, $httpProvider, datepickerConfig, datepickerPopupConfig, 
 	$rootScope, $state, $http, StorageService, history, configuration, $window, ClaimService, UserService, pathProvider, dateUtils) {
 		this.config = config;
 		this.run = run;
@@ -21,8 +21,6 @@
 			$httpProvider.defaults.useXDomain = true;
 			delete $httpProvider.defaults.headers.common['X-Requested-With'];
 			$httpProvider.interceptors.push('dateInterceptor');
-			
-			RestangularProvider.setBaseUrl(configuration.apiBaseUri);
 			
 			datepickerConfig.showWeeks = false;
 			datepickerConfig.datepickerMode = 'day';
