@@ -3,13 +3,13 @@
 
 	angular
 		.module('ncarb.services')
-		.service('Bootstrap', Bootstrap)
-		.provider('BootstrapProvider', BootstrapProvider);
+		.service('NcarbApp', NcarbApp)
+		.provider('NcarbAppConfig', NcarbAppConfigProvider);
 
-	Bootstrap.$inject = ['$rootScope', '$state', '$http', 'StorageService', 'history', 'configuration', '$window', 'ClaimService', 'UserService', 'pathProvider', 'dateUtils'];
+	NcarbApp.$inject = ['$rootScope', '$state', '$http', 'StorageService', 'history', 'configuration', '$window', 'ClaimService', 'UserService', 'pathProvider', 'dateUtils'];
 
 	/* @ngInject */
-	function Bootstrap($rootScope, $state, $http, StorageService, history, configuration, $window, ClaimService, UserService, pathProvider, dateUtils) {
+	function NcarbApp($rootScope, $state, $http, StorageService, history, configuration, $window, ClaimService, UserService, pathProvider, dateUtils) {
 	    this.run = run;
 
 		function run() {
@@ -82,29 +82,29 @@
 				angular.forEach(eventsString.split(" "), function (event) {
 					$rootScope.$on(event, fn);
 				});
-        	};
+			};
 		}
-	}
+	} 
 	
-
-	BootstrapProvider.$inject = ['$locationProvider', '$httpProvider', 'uibDatepickerConfig', 'uibDatepickerPopupConfig'];
+	NcarbAppConfigProvider.$inject = ['$locationProvider', '$httpProvider', 'uibDatepickerConfig', 'uibDatepickerPopupConfig'];
 
 	/* @ngInject */
-	function BootstrapProvider($locationProvider, $httpProvider, datepickerConfig, datepickerPopupConfig) {
-	    this.$get = function() {
-	      return {
-	        config: config
-	      };
-	    };
+	function NcarbAppConfigProvider($locationProvider, $httpProvider, datepickerConfig, datepickerPopupConfig) {
+		this.config = config;
+		this.$get = function() {
+		return {
+			config: config
+		};
+    };
 
 		////////////////
-		
+
 		function config() {
 			$locationProvider.html5Mode(true).hashPrefix('!');
 			$httpProvider.defaults.useXDomain = true;
 			delete $httpProvider.defaults.headers.common['X-Requested-With'];
 			$httpProvider.interceptors.push('dateInterceptor');
-			
+
 			datepickerConfig.showWeeks = false;
 			datepickerConfig.datepickerMode = 'day';
 			datepickerConfig.formatDay = 'd';
@@ -113,5 +113,5 @@
 			datepickerPopupConfig.showButtonBar = false;
 			datepickerPopupConfig.datepickerPopup = 'MM/dd/yyyy';
 		}
-	}	
+	}
 })(window.angular);

@@ -34,7 +34,7 @@
     "./modules/util/dateInterceptor.js",
     "./modules/util/dateUtils.js",
     "./servicesModule.js",
-    "./bootstrap.js"
+    "./NcarbApp.js"
   ],
   "keywords": [
     "angular",
