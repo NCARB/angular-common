@@ -5,7 +5,7 @@
 		.module('ncarb.services')
 		.service('Bootstrap', Bootstrap);
 
-	Bootstrap.$inject = ['$locationProvider', '$httpProvider', 'datepickerConfig', 'datepickerPopupConfig', 
+	Bootstrap.$inject = ['$locationProvider', '$httpProvider', 'uibDatepickerConfig', 'uibDatepickerPopupConfig', 
 	'$rootScope', '$state', '$http', 'StorageService', 'history', 'configuration', '$window', 'ClaimService', 'UserService', 'pathProvider', 'dateUtils'];
 
 	/* @ngInject */
