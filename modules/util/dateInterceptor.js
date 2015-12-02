@@ -37,6 +37,7 @@
     }
   
     function request(config) {
+      config.data = angular.copy(config.data);
       convertDatesToJson(config.data);
       return config;
     }
