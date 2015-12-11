@@ -35,8 +35,8 @@
 	            }
 	            var blurred = inputNgEl.attr('datepicker-popup') !== undefined;
 	            if(!blurred) {
-	                inputNgEl.bind('blur', function() {
-	                    blurred = true;
+	                inputNgEl.bind('change blur', function(e) {
+	                	blurred = e.type === 'blur';
 	                    el.toggleClass('has-error', formCtrl[inputName].$invalid);
 	                    if(showSuccess) {
 	                        el.toggleClass('has-success', !!(formCtrl[inputName].$valid && formCtrl[inputName].$viewValue));
