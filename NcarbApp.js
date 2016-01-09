@@ -112,6 +112,7 @@
 			datepickerConfig.maxMode = 'year';
 			datepickerPopupConfig.showButtonBar = false;
 			datepickerPopupConfig.datepickerPopup = 'MM/dd/yyyy';
+			datepickerPopupConfig.altInputFormats = ['M!/d!/yy', 'M!/d!/yyyy'];
 		}
 	}
 })(window.angular);
