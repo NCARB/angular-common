@@ -45,7 +45,7 @@
     "angular": "^1.3.12",
     "oauth-ng": "0.4.2",
     "underscore": "^1.8.0",
-    "angular-bootstrap": "~0.14.3"
+    "angular-bootstrap": "~1.0.0"
   },
   "homepage": "https://github.com/NCARB/angular-common"
 }
