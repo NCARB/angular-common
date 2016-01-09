@@ -33,7 +33,7 @@
 	            if(multi) {
                 	multi.add(inputFullName, showSuccess);
 	            }
-	            var blurred = inputNgEl.attr('datepicker-popup') !== undefined;
+	            var blurred = inputNgEl.attr('uib-datepicker-popup') !== undefined;
 	            if(!blurred) {
 	                inputNgEl.bind('change blur', function(e) {
 	                	blurred = e.type === 'blur';
