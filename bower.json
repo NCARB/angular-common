@@ -33,6 +33,7 @@
     "./modules/util/error.js",
     "./modules/util/dateInterceptor.js",
     "./modules/util/dateUtils.js",
+    "./modules/zendesk/widget.js",
     "./servicesModule.js",
     "./NcarbApp.js"
   ],
