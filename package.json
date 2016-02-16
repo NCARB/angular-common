@@ -1,7 +1,51 @@
 {
   "name": "ncarb-angular-common",
-  "version": "0.0.1",
+  "version": "1.10.0",
+  "author": "Equan Simmonds <esimmonds@ncarb.org>",
   "description": "Common angular services and directives",
+    "files": [
+    "./modules/directives/module.js",
+    "./modules/directives/displayAddress.js",
+    "./modules/directives/displayPhone.js",
+    "./modules/directives/editAddress.js",
+    "./modules/directives/zipPatternByCountryId.js",
+    "./modules/directives/editPhone.js",
+    "./modules/directives/feedback.js",
+    "./modules/directives/multiFeedback.js",
+    "./modules/directives/nestedFormSetSubmittedWithParent.js",
+    "./modules/directives/urlHelper.js",
+    "./modules/common/module.js",
+    "./modules/common/country.js",
+    "./modules/common/jurisdiction.js",
+    "./modules/common/state.js",
+    "./modules/common/pathProvider.js",
+    "./modules/common/enum.js",
+    "./modules/login/module.js",
+    "./modules/login/claim.js",
+    "./modules/login/storage.js",
+    "./modules/login/user.js",
+    "./modules/login/impersonationBanner.js",
+    "./modules/util/module.js",
+    "./modules/util/history.js",
+    "./modules/util/breakpoints.js",
+    "./modules/util/error.js",
+    "./modules/util/dateInterceptor.js",
+    "./modules/util/dateUtils.js",
+    "./modules/zendesk/widget.js",
+    "./servicesModule.js",
+    "./NcarbApp.js"
+  ],
+  "keywords": [
+    "angular",
+    "ncarb",
+    "services"
+  ],
+  "dependencies": {
+    "angular": "^1.3.12",
+    "oauth-ng": "0.4.2",
+    "underscore": "^1.8.0",
+    "angular-ui-bootstrap": "~1.1.1"
+  },
   "main": "services.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,10 +54,7 @@
     "type": "git",
     "url": "git://github.com/NCARB/angular-common.git"
   },
-  "keywords": [
-    "angular"
-  ],
-  "author": "Equan Simmonds",
+
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/NCARB/angular-common/issues"
