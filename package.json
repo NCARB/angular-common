@@ -1,6 +1,6 @@
 {
   "name": "ncarb-angular-common",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "author": "Equan Simmonds <esimmonds@ncarb.org>",
   "description": "Common angular services and directives",
     "files": [
