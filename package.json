@@ -3,7 +3,7 @@
   "version": "1.11.0",
   "author": "Equan Simmonds <esimmonds@ncarb.org>",
   "description": "Common angular services and directives",
-    "files": [
+  "files": [
     "./modules/directives/module.js",
     "./modules/directives/displayAddress.js",
     "./modules/directives/displayPhone.js",
@@ -54,10 +54,12 @@
     "type": "git",
     "url": "git://github.com/NCARB/angular-common.git"
   },
-
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/NCARB/angular-common/issues"
   },
-  "homepage": "https://github.com/NCARB/angular-common"
+  "homepage": "https://github.com/NCARB/angular-common",
+  "devDependencies": {
+    "conventional-changelog": "^1.1.0"
+  }
 }
