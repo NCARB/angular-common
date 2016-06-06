@@ -48,8 +48,10 @@
         };
 
         function logOut() {
-            clear();
-            $window.location.href = configuration.oauth.logout_uri;
+            asyncFunction(clear)
+                .then(function () {
+                    $window.location.href = configuration.oauth.logout_uri;
+                });
         };
 
         function setPolicies() {
@@ -95,6 +97,17 @@
 
         function getPolicies() {
             return policies;
+        };
+        
+        function asyncFunction(functionPtr) {
+            var defer = $q.defer();
+
+            setTimeout(function() {
+                functionPtr();
+                defer.resolve(true);
+            }, 500);
+
+            return defer.promise;
         };
     }
 })(window, window.angular);
