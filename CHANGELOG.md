@@ -1,3 +1,13 @@
+<a name="1.12.0"></a>
+# [1.12.0](https://github.com/NCARB/angular-common/compare/v1.11.0...v1.12.0) (2016-06-07)
+
+
+### Bug Fixes
+
+* **auth:** resolves ngStorage redirect race condition ([b4e3dc2](https://github.com/NCARB/angular-common/commit/b4e3dc2))
+
+
+
 <a name="1.11.0"></a>
 # [1.11.0](https://github.com/NCARB/angular-common/compare/v1.10.0...v1.11.0) (2016-02-17)
 
