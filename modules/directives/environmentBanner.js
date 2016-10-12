@@ -16,7 +16,7 @@
         };
 
         function link(scope) {
-            if (configuration.getEnvironment()) {
+            if (configuration.environment === 'staging') {
                 scope.environment = configuration.environment;
             }
         }
