@@ -1,3 +1,13 @@
+<a name="1.13.0"></a>
+# [1.13.0](https://github.com/NCARB/angular-common/compare/v1.12.0...v1.13.0) (2016-10-12)
+
+
+### Features
+
+* **environment banner:** Environment banner directive (#54) ([2ae6c00](https://github.com/NCARB/angular-common/commit/2ae6c00))
+
+
+
 <a name="1.12.0"></a>
 # [1.12.0](https://github.com/NCARB/angular-common/compare/v1.11.0...v1.12.0) (2016-06-07)
 
