@@ -20,3 +20,9 @@ Add a `<script>` reference to your `index.html` (otherwise let grunt wiredep han
 ```html
 <script src="/bower_components/ncarb-angular-common/servicesModule.js"></script>
 ```
+
+## Docs
+
+```shell
+npm install conventional-changelog@1.1.0
+```
