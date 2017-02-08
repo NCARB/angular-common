@@ -20,7 +20,7 @@
         <select name="country" ng-required="!hidden" ng-options="country.id as country.name for country in (countries | orderBy: \'name\')" ng-model="address.countryId" ng-change="countryIdChanged()"></select>\
     </div>\
     <div class="flex-item" feedback>\
-        <input name="streetLine1" ng-required="!hidden" type="text" ng-attr-placeholder="{{streetLine1Placeholder}}" ng-model="address.streetLine1"/>\
+        <input name="streetLine1" ng-required="!hidden && !onlyCityState" type="text" ng-attr-placeholder="{{streetLine1Placeholder}}" ng-model="address.streetLine1"/>\
     </div>\
     <div class="flex-item">\
         <input name="streetLine2" type="text" ng-attr-placeholder="{{streetLine2Placeholder}}" ng-model="address.streetLine2" />\
@@ -38,7 +38,7 @@
         <input type="text" ng-model="address.stateProvenceOrRegionText" placeholder="Region" />\
     </div>\
     <div class="flex-item flex-fill flex-1of4" feedback>\
-        <input ng-required="!hidden && !IsForeignAddress()" name="zip" type="text" ng-model="address.zip" ng-attr-placeholder="IsUsAddress() ? \'Zip Code\' : \'Postal Code\'" placeholder="Postal Code"  zip-pattern-by-country-id />\
+        <input ng-required="!hidden && !onlyCityState" name="zip" type="text" ng-model="address.zip" ng-attr-placeholder="IsUsAddress() ? \'Zip Code\' : \'Postal Code\'" placeholder="Postal Code"  zip-pattern-by-country-id />\
     </div>\
 </div>',
             replace: true,
@@ -47,7 +47,8 @@
                 address: '=ngModel',
                 states: '=',
                 countries: '=',
-                hidden: '=ngHide'
+                hidden: '=ngHide',
+                onlyCityState:'='
             },
             controller: controller,
             link: link
@@ -102,6 +103,9 @@
                 : scope.streetLine1Placeholder != "Street Line 1" 
                 ? "Street Line 1" 
                 : "Street Line 2";
+            scope.onlyCityState = angular.isDefined(attrs.onlyCityState)
+                ? attrs.onlyCityState
+                : editAddressConfig.onlyCityState
                 
             scope.IsUsAddress = function() {
                 return scope.address.countryId === scope.usa.id;
@@ -112,6 +116,7 @@
             scope.IsForeignAddress = function() {
                 return !scope.IsUsAddress() && !scope.IsCaAddress();
             };
+
             scope.getCountryNameById = function (countryId) {
                 return _.find(scope.countries, function(country) {
                     return country.id === countryId;
