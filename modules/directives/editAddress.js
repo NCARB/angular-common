@@ -48,7 +48,7 @@
                 states: '=',
                 countries: '=',
                 hidden: '=ngHide',
-                onlyCityState:'='
+                onlyCityState:'=bind'
             },
             controller: controller,
             link: link
