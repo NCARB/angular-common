@@ -1,10 +1,20 @@
+<a name="1.14.0"></a>
+# [1.14.0](https://github.com/NCARB/angular-common/compare/v1.13.0...v1.14.0) (2017-02-08)
+
+
+### Features
+
+* **roster:** city and state only for public addresses ([#55](https://github.com/NCARB/angular-common/issues/55)) ([001cc98](https://github.com/NCARB/angular-common/commit/001cc98))
+
+
+
 <a name="1.13.0"></a>
 # [1.13.0](https://github.com/NCARB/angular-common/compare/v1.12.0...v1.13.0) (2016-10-12)
 
 
 ### Features
 
-* **environment banner:** Environment banner directive (#54) ([2ae6c00](https://github.com/NCARB/angular-common/commit/2ae6c00))
+* **environment banner:** Environment banner directive ([#54](https://github.com/NCARB/angular-common/issues/54)) ([2ae6c00](https://github.com/NCARB/angular-common/commit/2ae6c00))
 
 
 
@@ -55,6 +65,7 @@
 ### Bug Fixes
 
 * **feedback:** datepicker-popup attr -> uib-datepicker-popup ([eaa2501](https://github.com/NCARB/angular-common/commit/eaa2501))
+
 
 ### Features
 
