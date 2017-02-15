@@ -1,3 +1,23 @@
+<a name="1.14.2"></a>
+## [1.14.2](https://github.com/NCARB/angular-common/compare/v1.14.1...v1.14.2) (2017-02-15)
+
+
+### Bug Fixes
+
+* **date interceptor:** circular case ([#57](https://github.com/NCARB/angular-common/issues/57)) ([4117921](https://github.com/NCARB/angular-common/commit/4117921))
+
+
+
+<a name="1.14.1"></a>
+## [1.14.1](https://github.com/NCARB/angular-common/compare/v1.14.0...v1.14.1) (2017-02-09)
+
+
+### Features
+
+* **pubaddress:** modified directive to allow expression values into local scope ([#56](https://github.com/NCARB/angular-common/issues/56)) ([71ef49d](https://github.com/NCARB/angular-common/commit/71ef49d))
+
+
+
 <a name="1.14.0"></a>
 # [1.14.0](https://github.com/NCARB/angular-common/compare/v1.13.0...v1.14.0) (2017-02-08)
 
