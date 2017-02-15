@@ -1,9 +1,9 @@
 (function(window, angular) {
   'use strict';
-  
+
   angular.module('ncarb.services.util')
     .provider('dateInterceptor', dateInterceptorProvider);
-    
+
   function dateInterceptorProvider() {
     this.$get = function() {
       return {
@@ -11,12 +11,12 @@
         request: request
       };
     };
-    
+
     function response(response) {
       convertJsonToDates(response.data);
       return response;
     }
-    
+
     function convertJsonToDates(obj) {
       for (var key in obj) {
         var value = obj[key];
@@ -35,20 +35,27 @@
         }
       }
     }
-  
+
     function request(config) {
       config.data = angular.copy(config.data);
       convertDatesToJson(config.data);
       return config;
     }
-    
+
     function pad(num) {
       return (num < 10 ? '0' : '') + num;
     }
-    
-    function convertDatesToJson(obj) {
+
+    function convertDatesToJson(obj, previousObjects) {
       if (typeof obj !== 'object') {
         return;
+      }
+
+      previousObjects = previousObjects || {};
+      if(previousObjects[obj]) {
+        return;
+      } else {
+        previousObjects[obj] = true;
       }
 
       for (var key in obj) {
@@ -60,7 +67,7 @@
           obj[key] = value.getFullYear() + '-' + pad(value.getMonth() + 1) + '-' + pad(value.getDate())
           + 'T' + pad(value.getHours()) + ':' + pad(value.getMinutes()) + ':' + pad(value.getSeconds());
         } else if (typeof value === 'object') {
-          convertDatesToJson(value);
+          convertDatesToJson(value, previousObjects);
         }
       }
     }
