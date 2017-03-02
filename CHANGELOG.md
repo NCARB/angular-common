@@ -1,3 +1,13 @@
+<a name="1.14.3"></a>
+## [1.14.3](https://github.com/NCARB/angular-common/compare/v1.14.2...v1.14.3) (2017-03-02)
+
+
+### Bug Fixes
+
+* **dateInterceptor:** fix circular check regression ([#59](https://github.com/NCARB/angular-common/issues/59)) ([d8dfad3](https://github.com/NCARB/angular-common/commit/d8dfad3)), closes [#59](https://github.com/NCARB/angular-common/issues/59) [#58](https://github.com/NCARB/angular-common/issues/58)
+
+
+
 <a name="1.14.2"></a>
 ## [1.14.2](https://github.com/NCARB/angular-common/compare/v1.14.1...v1.14.2) (2017-02-15)
 
