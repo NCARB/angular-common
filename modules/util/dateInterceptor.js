@@ -46,28 +46,26 @@
       return (num < 10 ? '0' : '') + num;
     }
 
-    function convertDatesToJson(obj, previousObjects) {
-      if (typeof obj !== 'object') {
-        return;
-      }
-
-      previousObjects = previousObjects || {};
-      if(previousObjects[obj]) {
-        return;
-      } else {
-        previousObjects[obj] = true;
-      }
-
-      for (var key in obj) {
-        if (!obj.hasOwnProperty(key)) {
-          continue;
+    function convertDatesToJson(obj) {
+      var previousObjects = [];
+      convertDatesToJsonRecurse(obj);
+      function convertDatesToJsonRecurse(obj) {
+        if (typeof obj !== 'object' || previousObjects.indexOf(obj) !== -1) {
+          return;
         }
-        var value = obj[key];
-        if (value && angular.isDate(value) && !isNaN(value)) {
-          obj[key] = value.getFullYear() + '-' + pad(value.getMonth() + 1) + '-' + pad(value.getDate())
-          + 'T' + pad(value.getHours()) + ':' + pad(value.getMinutes()) + ':' + pad(value.getSeconds());
-        } else if (typeof value === 'object') {
-          convertDatesToJson(value, previousObjects);
+        previousObjects.push(obj);
+
+        for (var key in obj) {
+          if (!obj.hasOwnProperty(key)) {
+            continue;
+          }
+          var value = obj[key];
+          if (value && angular.isDate(value) && !isNaN(value)) {
+            obj[key] = value.getFullYear() + '-' + pad(value.getMonth() + 1) + '-' + pad(value.getDate())
+            + 'T' + pad(value.getHours()) + ':' + pad(value.getMinutes()) + ':' + pad(value.getSeconds());
+          } else if (value && typeof value === 'object') {
+            convertDatesToJsonRecurse(value);
+          }
         }
       }
     }
