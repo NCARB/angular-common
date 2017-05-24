@@ -1,10 +1,20 @@
+<a name="1.15.0"></a>
+# [1.15.0](https://github.com/NCARB/angular-common/compare/v1.14.3...v1.15.0) (2017-05-24)
+
+
+### Features
+
+* **editAddress:** attr streetOptional instead of cityStateOnly ([#60](https://github.com/NCARB/angular-common/issues/60)) ([3bf5804](https://github.com/NCARB/angular-common/commit/3bf5804))
+
+
+
 <a name="1.14.3"></a>
 ## [1.14.3](https://github.com/NCARB/angular-common/compare/v1.14.2...v1.14.3) (2017-03-02)
 
 
 ### Bug Fixes
 
-* **dateInterceptor:** fix circular check regression ([#59](https://github.com/NCARB/angular-common/issues/59)) ([d8dfad3](https://github.com/NCARB/angular-common/commit/d8dfad3)), closes [#59](https://github.com/NCARB/angular-common/issues/59) [#58](https://github.com/NCARB/angular-common/issues/58)
+* **dateInterceptor:** fix circular check regression ([#59](https://github.com/NCARB/angular-common/issues/59)) ([d8dfad3](https://github.com/NCARB/angular-common/commit/d8dfad3)), closes [#58](https://github.com/NCARB/angular-common/issues/58)
 
 
 

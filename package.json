@@ -61,6 +61,6 @@
   },
   "homepage": "https://github.com/NCARB/angular-common",
   "devDependencies": {
-    "conventional-changelog": "^1.1.0"
+    "conventional-changelog": "~1.1.0"
   }
 }
