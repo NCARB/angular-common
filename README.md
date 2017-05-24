@@ -24,5 +24,5 @@ Add a `<script>` reference to your `index.html` (otherwise let grunt wiredep han
 ## Docs
 
 ```shell
-npm install conventional-changelog@1.1.0
+npm install -g conventional-changelog@1.1.0
 ```
