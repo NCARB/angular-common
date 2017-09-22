@@ -179,7 +179,8 @@
       claimTypes.ncarb = {
         personId: 'http://identity.ncarb.org/claims/personid',
         staffId: 'http://identity.ncarb.org/claims/staffId',
-        recordNumber: 'http://identity.ncarb.org/claims/recordNumber'
+        recordNumber: 'http://identity.ncarb.org/claims/recordNumber',
+        memberBoard: 'http://identity.ncarb.org/claims/memberBoard'
       };
 
       return claimTypes;
