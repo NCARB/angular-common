@@ -1,3 +1,18 @@
+<a name="1.15.2"></a>
+## [1.15.2](https://github.com/NCARB/angular-common/compare/v1.15.1...v1.15.2) (2017-09-22)
+
+
+### Features
+
+* **claims:** add memberboard claim ([#62](https://github.com/NCARB/angular-common/issues/62)) ([3d5a030](https://github.com/NCARB/angular-common/commit/3d5a030))
+
+
+
+<a name="1.15.1"></a>
+## [1.15.1](https://github.com/NCARB/angular-common/compare/v1.15.0...v1.15.1) (2017-05-24)
+
+
+
 <a name="1.15.0"></a>
 # [1.15.0](https://github.com/NCARB/angular-common/compare/v1.14.3...v1.15.0) (2017-05-24)
 
@@ -14,7 +29,7 @@
 
 ### Bug Fixes
 
-* **dateInterceptor:** fix circular check regression ([#59](https://github.com/NCARB/angular-common/issues/59)) ([d8dfad3](https://github.com/NCARB/angular-common/commit/d8dfad3)), closes [#58](https://github.com/NCARB/angular-common/issues/58)
+* **dateInterceptor:** fix circular check regression ([#59](https://github.com/NCARB/angular-common/issues/59)) ([d8dfad3](https://github.com/NCARB/angular-common/commit/d8dfad3)), closes [#59](https://github.com/NCARB/angular-common/issues/59) [#58](https://github.com/NCARB/angular-common/issues/58)
 
 
 
