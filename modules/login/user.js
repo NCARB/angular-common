@@ -114,7 +114,7 @@
             setTimeout(function() {
                 functionPtr();
                 defer.resolve(true);
-            }, 500);
+            }, 1000);
 
             return defer.promise;
         };
