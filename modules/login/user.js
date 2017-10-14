@@ -56,10 +56,7 @@
         };
 
         function refreshClaims() {
-            asyncFunction(clear)
-                .then(function () {
-                    $window.location.href = Endpoint.get();
-                });
+            $window.location.href = Endpoint.get();
         };
 
         function setPolicies() {
