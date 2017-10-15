@@ -37,7 +37,11 @@
         function isAuthenticated() {
             var token = StorageService.getItem('token');
 
-            return !!token;
+            return !!token && !expired(token);
+        };
+
+        function expired(token) {
+           return (token && token.expires_at && new Date(token.expires_at) < new Date());
         };
 
         function clear() {
