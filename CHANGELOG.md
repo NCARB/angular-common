@@ -1,3 +1,15 @@
+<a name="1.16.0"></a>
+# [1.16.0](https://github.com/NCARB/angular-common/compare/v1.15.2...v1.16.0) (2017-10-16)
+
+
+### Bug Fixes
+
+* **login:** clear immediately, then timeout ([#63](https://github.com/NCARB/angular-common/issues/63)) ([32ef188](https://github.com/NCARB/angular-common/commit/32ef188))
+* **login:** isAuthenticated checks expiration ([#65](https://github.com/NCARB/angular-common/issues/65)) ([1fc2fb8](https://github.com/NCARB/angular-common/commit/1fc2fb8))
+* **login:** refresh claims on expiration instead of logging out ([#64](https://github.com/NCARB/angular-common/issues/64)) ([067412d](https://github.com/NCARB/angular-common/commit/067412d))
+
+
+
 <a name="1.15.2"></a>
 ## [1.15.2](https://github.com/NCARB/angular-common/compare/v1.15.1...v1.15.2) (2017-09-22)
 
@@ -29,7 +41,7 @@
 
 ### Bug Fixes
 
-* **dateInterceptor:** fix circular check regression ([#59](https://github.com/NCARB/angular-common/issues/59)) ([d8dfad3](https://github.com/NCARB/angular-common/commit/d8dfad3)), closes [#59](https://github.com/NCARB/angular-common/issues/59) [#58](https://github.com/NCARB/angular-common/issues/58)
+* **dateInterceptor:** fix circular check regression ([#59](https://github.com/NCARB/angular-common/issues/59)) ([d8dfad3](https://github.com/NCARB/angular-common/commit/d8dfad3)), closes [#58](https://github.com/NCARB/angular-common/issues/58)
 
 
 
