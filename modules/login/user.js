@@ -5,9 +5,9 @@
         .module('ncarb.services.login')
         .service('UserService', UserService);
 
-    UserService.$inject = ['StorageService', 'Endpoint', 'configuration', '$http', '$window', '$q', '$log'];
+    UserService.$inject = ['StorageService', 'Endpoint', 'configuration', '$http', '$window', '$q', '$log', '$timeout'];
 
-    function UserService(StorageService, Endpoint, configuration, $http, $window, $q, $log) {
+    function UserService(StorageService, Endpoint, configuration, $http, $window, $q, $log, $timeout) {
         var user;
         var policies = null;
         var service = {
@@ -53,10 +53,10 @@
         };
 
         function logOut() {
-            asyncFunction(clear)
-                .then(function () {
-                    $window.location.href = configuration.oauth.logout_uri;
-                });
+          clear();
+          $timeout(function () {
+              $window.location.href = configuration.oauth.logout_uri;
+          }, 500);
         };
 
         function refreshClaims() {
@@ -106,17 +106,6 @@
 
         function getPolicies() {
             return policies;
-        };
-
-        function asyncFunction(functionPtr) {
-            var defer = $q.defer();
-
-            setTimeout(function() {
-                functionPtr();
-                defer.resolve(true);
-            }, 500);
-
-            return defer.promise;
         };
     }
 })(window, window.angular);
