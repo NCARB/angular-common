@@ -73,7 +73,7 @@
 			});
 
 			$rootScope.$on('oauth:expired', function() {
-				UserService.logOut();
+				UserService.refreshClaims();
 			});
 
 			history.push($state.current, $state.params);
@@ -84,8 +84,8 @@
 				});
 			};
 		}
-	} 
-	
+	}
+
 	NcarbAppConfigProvider.$inject = ['$locationProvider', '$httpProvider', 'uibDatepickerConfig', 'uibDatepickerPopupConfig'];
 
 	/* @ngInject */
