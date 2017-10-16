@@ -53,10 +53,10 @@
         };
 
         function logOut() {
-            asyncFunction(clear)
-                .then(function () {
-                    $window.location.href = configuration.oauth.logout_uri;
-                });
+          clear();
+          $timeout(function () {
+              $window.location.href = configuration.oauth.logout_uri;
+          }, 500);
         };
 
         function refreshClaims() {
@@ -106,17 +106,6 @@
 
         function getPolicies() {
             return policies;
-        };
-
-        function asyncFunction(functionPtr) {
-            var defer = $q.defer();
-
-            setTimeout(function() {
-                functionPtr();
-                defer.resolve(true);
-            }, 1000);
-
-            return defer.promise;
         };
     }
 })(window, window.angular);
