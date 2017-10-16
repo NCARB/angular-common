@@ -5,9 +5,9 @@
         .module('ncarb.services.login')
         .service('UserService', UserService);
 
-    UserService.$inject = ['StorageService', 'Endpoint', 'configuration', '$http', '$window', '$q', '$log'];
+    UserService.$inject = ['StorageService', 'Endpoint', 'configuration', '$http', '$window', '$q', '$log', '$timeout'];
 
-    function UserService(StorageService, Endpoint, configuration, $http, $window, $q, $log) {
+    function UserService(StorageService, Endpoint, configuration, $http, $window, $q, $log, $timeout) {
         var user;
         var policies = null;
         var service = {
