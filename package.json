@@ -15,9 +15,9 @@
   ],
   "dependencies": {
     "angular": "^1.3.12",
-    "oauth-ng": "0.4.2",
+    "angular-ui-bootstrap": "~1.1.1",
     "underscore": "^1.8.0",
-    "angular-ui-bootstrap": "~1.1.1"
+    "oauth-ng": "git://github.com/angularjs-oauth/oauth-ng#master"
   },
   "main": "services.js",
   "scripts": {
