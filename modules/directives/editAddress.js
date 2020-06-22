@@ -38,7 +38,7 @@
         <input type="text" ng-model="address.stateProvenceOrRegionText" placeholder="Region" />\
     </div>\
     <div class="flex-item flex-fill flex-1of4" feedback>\
-        <input ng-required="!hidden" name="zip" type="text" ng-model="address.zip" ng-attr-placeholder="IsUsAddress() ? \'Zip Code\' : \'Postal Code\'" placeholder="Postal Code"  zip-pattern-by-country-id />\
+        <input ng-required="!hidden" name="zip" type="text" ng-model="address.zip" ng-attr-placeholder="{{IsUsAddress() ? \'Zip Code\' : \'Postal Code\'}}" placeholder="Postal Code"  zip-pattern-by-country-id />\
     </div>\
 </div>',
             replace: true,
