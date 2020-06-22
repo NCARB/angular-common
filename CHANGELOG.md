@@ -1,3 +1,10 @@
+<a name="1.16.1"></a>
+# [1.16.1](https://github.com/NCARB/angular-common/compare/v1.16.0...v1.16.1) (2020-06-22)
+
+* zip placeholder fix #66
+
+### Bug Fixes
+
 <a name="1.16.0"></a>
 # [1.16.0](https://github.com/NCARB/angular-common/compare/v1.15.2...v1.16.0) (2017-10-16)
 
