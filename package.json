@@ -5,8 +5,8 @@
   "description": "Common angular services and directives",
   "files": [
     "modules",
-    "./servicesModule.js",
-    "./NcarbApp.js"
+    "servicesModule.js",
+    "NcarbApp.js"
   ],
   "keywords": [
     "angular",
